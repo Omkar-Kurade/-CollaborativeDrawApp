@@ -39,9 +39,12 @@ app.post("/api/v1/signup" , async(req : Request , res : Response)=>{
         })
         
     } catch (error) {
+        // console.log(error)
         res.json({
-            message : "User already exist with this email"
+            message : ` ${error}`
+    
         })
+      
     }
 })
 app.post("/api/v1/signin" , async(req : Request , res : Response)=>{

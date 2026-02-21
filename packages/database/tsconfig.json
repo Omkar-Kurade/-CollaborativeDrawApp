@@ -6,8 +6,9 @@
     "declaration": true,
     "declarationMap": true,
     "module": "NodeNext",
-    "moduleResolution": "NodeNext"
+    "moduleResolution": "NodeNext",
+    "types": ["node"]
   },
-  "include": ["src", "generated"],
+  "include": ["src", "generated" , "prisma.config.ts"],
   "exclude": ["node_modules", "dist"]
 }
