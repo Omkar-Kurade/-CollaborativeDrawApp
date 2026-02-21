@@ -13,7 +13,8 @@
       ],
       "outputs": [
         ".next/**",
-        "!.next/cache/**"
+        "!.next/cache/**",
+        "dist/**"
       ],
       "env": [
         "DATABASE_URL"
@@ -31,6 +32,7 @@
     },
     "dev": {
       "dependsOn": [
+        "^build",
         "^db:generate"
       ],
       "cache": false,

@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken"
 import bcrypt from "bcrypt"
 import {  Request, Response } from "express";
 import {signUpBody , signInBody} from "@repo/common/types"
-import { middleware } from "./middleware";
+import { middleware } from "./middleware.js";
 import { JWT_SECRET } from "@repo/backend-common/config";
 import { prisma } from "@repo/db";
 
