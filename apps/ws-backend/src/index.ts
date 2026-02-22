@@ -52,7 +52,7 @@ wss.on("connection", function connection(ws, request) {
     ws,
   });
 
-  ws.on("message", function message(data) {
+  ws.on("message", async function message(data) {
     let parsedData;
     try {
         parsedData  = JSON.parse(data as unknown as string);
@@ -78,6 +78,14 @@ wss.on("connection", function connection(ws, request) {
       const roomId = parsedData.roomId;
       const message = parsedData.message;
 
+      await prisma.chat.create({
+        data : {
+            roomId,
+            message,
+            userId
+        }
+      })
+        
       users.forEach((user) => {
         if (user.rooms.includes(roomId)) {
           user.ws.send(
