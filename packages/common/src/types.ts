@@ -14,5 +14,5 @@ export const signInBody = z.object({
 
 
 export const createRoomBody = z.object({
-    roomName : z.string().min(4).max(8)
+    roomName : z.string().min(4).max(20)
 })
