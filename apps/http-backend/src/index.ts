@@ -130,6 +130,24 @@ app.post("/api/v1/room", middleware, async (req, res) => {
     }
 });
 
+app.get("/api/v1/chats/:roomId" , async (req , res)=>{
+    const roomId = Number(req.params.roomId);
+
+    const messages = await prisma.chat.findMany({
+        where : {
+            roomId : roomId
+        },
+        orderBy : {
+            id : "desc"
+        },
+        take : 50
+    })
+
+    res.json({
+        messages : messages
+    })
+
+})
 app.listen(3001, () => {
     console.log("http-backend is running on localhost:3001");
 });
